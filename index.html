@@ -23,9 +23,164 @@ Known Issues:
 blah, blah, blah, blah
 -->
 
-   <head> 
+<head> 
+      <title>Cold or Allergies?</title> <!-- This is the title on the browser tab of my web app. -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script> //Start of script.
       
-	   PUT YOUR OLD CODE IN HERE
+	var allergy_count = 0;
+        var cold_count = 0;
+// The two initialized variables above correspond to allergies and cold. They are both set to 0.	
+	
+        function allergyAdd(){
+            allergy_count = allergy_count + 1;
+        }
+//Above is the function for allergyAdd(). Whenever the user clicks on the response (Yes or No) corresponding to allergies, +1 will be added.
+	
+        function coldAdd(){
+            cold_count = cold_count + 1;
+        }
+//Above is the function for coldAdd(). Whenever the user clicks on the response (Yes or No) corresponding to a cold, +1 will be added.
+	
+	function printAnswer(){
+		allergyPercent = (allergy_count/4) * 100; //Formula for calculating percentage of allergies.
+		coldPercent = (cold_count/4) * 100; //Formula for calculating percentage of cold.
+//Above is the function for printAnswer(). This function displays the probabilities of allergies or cold on the last page of the questionnaire.
+		
+		var resultText = document.getElementById("results"); //This variable is what helps display the results.
+		resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%" + "<br> Probability it is a cold = " + coldPercent + "%";
+		//The words in parentheses followed by the equal sign after resultText.innerHTML is the text that is displayed on the results page. I added +"%"+ after allergyPercent and coldPercent so percentage signs could be displayed on the results page. 
+	}
+	
+  </script> <!-- End of script. -->
+
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-pale-green"> <!-- Changed all page headers to pale green. -->
+	<h1>Cold or Allergies?</h1> <!-- Text on the page header. -->
+</div> <!-- Divider between the header and the rest of the page text. -->
+	
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have a cold but wonder if it's allergies? Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-green w3-round"> Get Started </a> <!-- Changed "Get Started" button color to green; "href" links the user to page one after they click the button. -->
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+<footer class="w3-bottom w3-container w3-pale-green"> <!-- Changed all footer colors to pale green. --> 
+	<p>DIY!</p>
+</footer>
+
+<div class="page" id="one"> <!-- Page one -->
+	<div id="header" class="w3-container w3-pale-green">
+		<h1>Cold or Allergies?: Question 1</h1> <!-- Text on page header; added "Question 1" to notify user what question they're on. -->
+	</div> <!-- Divider between the header and the question/answer buttons. -->
+	
+    	<div id="content" class="w3-container">
+        <p>Are your eyes watery or itchy?</p>
+	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page two. --> 
+	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-green">No</a> <!-- Changed all "Yes" and "No" button colors to green. -->
+    	</div><!-- /content -->
+
+<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+	<p>DIY!</p>
+</footer>
+</div>
+
+<div class="page" id="two"> <!-- Page two -->
+	<div class="w3-container w3-pale-green">
+		<h1>Cold or Allergies?: Question 2</h1> <!-- Text on page header; added "Question 2" to notify user what question they're on. -->
+	</div> <!-- Divider between the header and the question/answer buttons. -->
+	
+	<div id="content" class="w3-container">
+	<p>Do you have a fever?</p>
+	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page three. -->
+	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-green">No</a>
+	</div><!-- /content -->
+	
+<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+	<p>DIY!</p>
+</footer>
+</div>
+	
+<div class="page" id="three"> <!-- Page three -->
+	<div class="w3-container w3-pale-green">
+		<h1>Cold or Allergies?: Question 3</h1> <!-- Text on page header; added "Question 3" to notify user what question they're on. -->
+	</div> <!-- Divider between the header and the question/answer buttons. -->
+	  
+	<div id="content" class="w3-container">
+	<p>Do you have a sore throat?</p>
+	<a href="#four"  onclick="coldAdd();" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page four. -->
+	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-green">No</a>
+	</div><!-- /content -->
+
+<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+	<p>DIY!</p>
+</footer>
+</div>
+
+<div class="page" id="four"> <!-- Page four -->
+	<div class="w3-container w3-pale-green">
+		<h1>Cold or Allergies?: Question 4</h1> <!-- Text on page header; added "Question 4" to notify user what question they're on. -->
+	</div> <!-- Divider between the header and the question/answer buttons. -->
+	  
+	<div id="content" class="w3-container">
+	<p>Are your symptoms seasonal or chronic?</p>
+	<a href="#five"  onclick="allergyAdd(); printAnswer()" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page five: the results. -->
+	<a href="#five"  onclick="coldAdd(); printAnswer()" class="w3-btn w3-green">No</a> <!-- The printAnswer() function that follows the coldAdd() and allergyAdd() is what calculates the percentage (results) of cold and allergies and displays it on the results page. --> 
+	</div><!-- /content -->
+
+<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+	<p>DIY!</p>
+</footer>
+</div>
+	
+<div class="page" id="five"> <!-- Page five -->
+	<div class="w3-container w3-pale-green">
+		<h1>Cold or Allergies?: Results</h1> <!-- Text on page header; added "Results" to notify user that they have finished the questionnaire and are now seeing their results. -->
+	</div> <!-- Divider between the header and the result text. -->
+	
+	<div id="content" class="w3-container">
+	<p id="results"></p> <!-- Paragraph for results page. -->
+	</div><!-- /content -->
+	
+
+	
+<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+	<p>DIY!</p>
+</footer>
+
 	   
-   </body>
+</body>
 </html>
