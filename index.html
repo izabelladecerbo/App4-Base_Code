@@ -24,7 +24,7 @@ blah, blah, blah, blah
 -->
 
 <head> 
-      <title>Cold or Allergies?</title> <!-- This is the title on the browser tab of my web app. -->
+      <title>Could your sore throat be strep?</title> <!-- This is the title on the browser tab of my web app. -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -34,28 +34,28 @@ blah, blah, blah, blah
 
 <script> //Start of script.
       
-	var allergy_count = 0;
-        var cold_count = 0;
-// The two initialized variables above correspond to allergies and cold. They are both set to 0.	
+	var sorethroat_count = 0;
+        var strep_count = 0;
+// The two initialized variables above correspond to common sore throat and strep throat. They are both set to 0.	
 	
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
+        function sorethroatAdd(){
+            sorethroat_count = sorethroat_count + 1;
         }
-//Above is the function for allergyAdd(). Whenever the user clicks on the response (Yes or No) corresponding to allergies, +1 will be added.
+//Above is the function for sorethroatAdd(). Whenever the user clicks on the response (Yes or No) corresponding to common sore throat symptoms, +1 will be added.
 	
-        function coldAdd(){
-            cold_count = cold_count + 1;
+        function strepAdd(){
+            strep_count = strep_count + 1;
         }
-//Above is the function for coldAdd(). Whenever the user clicks on the response (Yes or No) corresponding to a cold, +1 will be added.
+//Above is the function for strepAdd(). Whenever the user clicks on the response (Yes or No) corresponding to strep throat symptoms, +1 will be added.
 	
 	function printAnswer(){
-		allergyPercent = (allergy_count/4) * 100; //Formula for calculating percentage of allergies.
-		coldPercent = (cold_count/4) * 100; //Formula for calculating percentage of cold.
-//Above is the function for printAnswer(). This function displays the probabilities of allergies or cold on the last page of the questionnaire.
+		sorethroatPercent = (sorethroat_count/4) * 100; //Formula for calculating percentage of having a common sore throat.
+		strepPercent = (strep_count/4) * 100; //Formula for calculating percentage of having strep throat.
+//Above is the function for printAnswer(). This function displays the probabilities of having a common sore throat or strep throat on the last page of the questionnaire.
 		
-		var resultText = document.getElementById("results"); //This variable is what helps display the results.
-		resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%" + "<br> Probability it is a cold = " + coldPercent + "%";
-		//The words in parentheses followed by the equal sign after resultText.innerHTML is the text that is displayed on the results page. I added +"%"+ after allergyPercent and coldPercent so percentage signs could be displayed on the results page. 
+	var resultText = document.getElementById("results"); //This variable is what helps display the results.
+	resultText.innerHTML = "Probability your sore throat is strep = " + strepPercent + "%" + "<br> Probability your sore throat has another cause= " + sorethroatPercent + "%";
+//The words in parentheses followed by the equal sign after resultText.innerHTML is the text that is displayed on the results page. I added +"%"+ after sorethroatPercent and strepPercent so percentage signs could be displayed on the results page. 
 	}
 	
   </script> <!-- End of script. -->
@@ -82,93 +82,103 @@ blah, blah, blah, blah
     left: 0vw;
     z-index: 1;
 }
+
+img, object{ /* Inserted code that resizes image on Question 2 based on what device the user uses the site on. */
+	max-height:90%;
+        max-width:90%;
+        
+}
+	
 </style>
 
 <body>
-<div id="header" class="w3-container w3-pale-green"> <!-- Changed all page headers to pale green. -->
-	<h1>Cold or Allergies?</h1> <!-- Text on the page header. -->
+<div id="header" class="w3-container w3-light-blue"> <!-- Changed all page headers to light blue. -->
+	<h1>Could your sore throat be strep?</h1> <!-- Text on the page header. -->
 </div> <!-- Divider between the header and the rest of the page text. -->
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it's allergies? Answer a few short questions to find out!</p>
+	<p>Your throat is itchy and scratchy. You find it painful to swallow, and your lymph nodes seem to be swollen. You may not have a fever, but you know something isn't right. Could your sore throat be a sign of strep (Group A Streptococcus)? Answer a few short questions to find out!</p>
 	
-	<a href="#one" class="w3-btn w3-green w3-round"> Get Started </a> <!-- Changed "Get Started" button color to green; "href" links the user to page one after they click the button. -->
+	<a href="#one" class="w3-btn w3-blue-gray w3-round"> Get Started </a> <!-- Changed "Get Started" button color to blue gray; "href" links the user to page one after they click the button. -->
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<footer class="w3-bottom w3-container w3-pale-green"> <!-- Changed all footer colors to pale green. --> 
+<footer class="w3-bottom w3-container w3-light-blue"> <!-- Changed all footer colors to light blue. --> 
 	<p>DIY!</p>
 </footer>
 
 <div class="page" id="one"> <!-- Page one -->
-	<div id="header" class="w3-container w3-pale-green">
-		<h1>Cold or Allergies?: Question 1</h1> <!-- Text on page header; added "Question 1" to notify user what question they're on. -->
+	<div id="header" class="w3-container w3-light-blue">
+		<h1>Could your sore throat be strep?: Question 1</h1> <!-- Text on page header; added "Question 1" to notify user what question they're on. -->
 	</div> <!-- Divider between the header and the question/answer buttons. -->
 	
     	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>
-	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page two. --> 
-	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-green">No</a> <!-- Changed all "Yes" and "No" button colors to green. -->
+        	<p>Do you have a cough or runny nose?</p>
+			<a href="#two"  onclick="sorethroatAdd();" class="w3-btn w3-blue-gray"> Yes</a> <!-- After onclick=sorethroatAdd() or strepAdd(), "href" links user to page two. --> 
+			<a href="#two"  onclick="strepAdd();" class="w3-btn w3-blue-gray">No</a> <!-- Changed all "Yes" and "No" button colors to blue gray. -->
     	</div><!-- /content -->
 
-<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+<footer class="w3-bottom w3-container w3-light-blue"> <!-- Footer -->
 	<p>DIY!</p>
 </footer>
 </div>
 
 <div class="page" id="two"> <!-- Page two -->
-	<div class="w3-container w3-pale-green">
-		<h1>Cold or Allergies?: Question 2</h1> <!-- Text on page header; added "Question 2" to notify user what question they're on. -->
+	<div class="w3-container w3-light-blue">
+		<h1>Could your sore throat be strep?: Question 2</h1> <!-- Text on page header; added "Question 2" to notify user what question they're on. -->
 	</div> <!-- Divider between the header and the question/answer buttons. -->
 	
 	<div id="content" class="w3-container">
-	<p>Do you have a fever?</p>
-	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page three. -->
-	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-green">No</a>
-	</div><!-- /content -->
+		<p>Do you have swollen, red tonsils (could be covered in pus or white patches)?</p>
+			<a href="#three"  onclick="strepAdd();" class="w3-btn w3-blue-gray"> Yes</a> <!-- After onclick=sorethroatAdd() or strepAdd(), "href" links user to page three. -->
+			<a href="#three"  onclick="sorethroatAdd();" class="w3-btn w3-blue-gray">No</a>
+	</div> <!-- Divider between the question/answer buttons and the image. -->
 	
-<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+	<img src="strep_throat.jpeg" alt="Strep Throat Visual"> <!-- Inserted image of what a normal throat looks like vs. a throat with strep. -->
+		</div><!-- /content -->
+	
+<footer class="w3-bottom w3-container w3-light-blue"> <!-- Footer -->
 	<p>DIY!</p>
 </footer>
 </div>
 	
 <div class="page" id="three"> <!-- Page three -->
-	<div class="w3-container w3-pale-green">
-		<h1>Cold or Allergies?: Question 3</h1> <!-- Text on page header; added "Question 3" to notify user what question they're on. -->
+	<div class="w3-container w3-light-blue">
+		<h1>Could your sore throat be strep?: Question 3</h1> <!-- Text on page header; added "Question 3" to notify user what question they're on. -->
 	</div> <!-- Divider between the header and the question/answer buttons. -->
 	  
 	<div id="content" class="w3-container">
-	<p>Do you have a sore throat?</p>
-	<a href="#four"  onclick="coldAdd();" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page four. -->
-	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-green">No</a>
+	<p>Do you have swollen lymph nodes in the front of your neck?</p>
+		<a href="#four"  onclick="strepAdd();" class="w3-btn w3-blue-gray"> Yes</a> <!-- After onclick=sorethroatAdd() or strepAdd(), "href" links user to page four. -->
+		<a href="#four"  onclick="sorethroatAdd();" class="w3-btn w3-blue-gray">No</a>
 	</div><!-- /content -->
 
-<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+<footer class="w3-bottom w3-container w3-light-blue"> <!-- Footer -->
 	<p>DIY!</p>
 </footer>
 </div>
 
 <div class="page" id="four"> <!-- Page four -->
-	<div class="w3-container w3-pale-green">
-		<h1>Cold or Allergies?: Question 4</h1> <!-- Text on page header; added "Question 4" to notify user what question they're on. -->
+	<div class="w3-container w3-light-blue">
+		<h1>Could your sore throat be strep?: Question 4</h1> <!-- Text on page header; added "Question 4" to notify user what question they're on. -->
 	</div> <!-- Divider between the header and the question/answer buttons. -->
 	  
 	<div id="content" class="w3-container">
-	<p>Are your symptoms seasonal or chronic?</p>
-	<a href="#five"  onclick="allergyAdd(); printAnswer()" class="w3-btn w3-green"> Yes</a> <!-- After onclick=allergyAdd() or coldAdd(), "href" links user to page five: the results. -->
-	<a href="#five"  onclick="coldAdd(); printAnswer()" class="w3-btn w3-green">No</a> <!-- The printAnswer() function that follows the coldAdd() and allergyAdd() is what calculates the percentage (results) of cold and allergies and displays it on the results page. --> 
+	<p>Do you have a fever of 100.4°F or higher?</p>
+		<a href="#five"  onclick="strepAdd(); printAnswer()" class="w3-btn w3-blue-gray"> Yes</a> <!-- After onclick=sorethroatAdd() or strepAdd(), "href" links user to page five: the results. -->
+		<a href="#five"  onclick="sorethroatAdd(); printAnswer()" class="w3-btn w3-blue-gray">No</a> <!-- The printAnswer() function that follows the sorethroatAdd() and strepAdd() is what calculates the percentage (results) of having strep throat or having a common sore throat and displays it on the results page. --> 
 	</div><!-- /content -->
 
-<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+<footer class="w3-bottom w3-container w3-light-blue"> <!-- Footer -->
 	<p>DIY!</p>
 </footer>
 </div>
 	
 <div class="page" id="five"> <!-- Page five -->
-	<div class="w3-container w3-pale-green">
-		<h1>Cold or Allergies?: Results</h1> <!-- Text on page header; added "Results" to notify user that they have finished the questionnaire and are now seeing their results. -->
+	<div class="w3-container w3-light-blue">
+		<h1>Could your sore throat be strep?: Results</h1> <!-- Text on page header; added "Results" to notify user that they have finished the questionnaire and are now seeing their results. -->
 	</div> <!-- Divider between the header and the result text. -->
 	
 	<div id="content" class="w3-container">
@@ -177,7 +187,7 @@ blah, blah, blah, blah
 	
 
 	
-<footer class="w3-bottom w3-container w3-pale-green"> <!-- Footer -->
+<footer class="w3-bottom w3-container w3-light-blue"> <!-- Footer -->
 	<p>DIY!</p>
 </footer>
 
